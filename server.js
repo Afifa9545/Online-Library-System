@@ -6,6 +6,8 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+console.log("Looking for static files in:", path.join(__dirname, 'public'));
 app.use(express.static('public')); // Serves your HTML/CSS
 
 const db = mysql.createConnection({
